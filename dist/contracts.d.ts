@@ -47,6 +47,16 @@ export interface HighlightTake {
     claim_text: string;
     verdict_summary: string;
 }
+/**
+ * Count of graded takes by outcome verdict. `partial` is the
+ * `partially correct` verdict; the four counts sum to `Profile.resolved_takes`.
+ */
+export interface VerdictDistribution {
+    correct: number;
+    partial: number;
+    incorrect: number;
+    unresolvable: number;
+}
 export interface Profile {
     user: string;
     corpus_size: number;
@@ -56,6 +66,11 @@ export interface Profile {
     by_domain: DomainProfile[];
     patterns: string[];
     highlight_takes: HighlightTake[];
+    /**
+     * Graded-take counts by verdict. Optional — populated by hindsight-profile
+     * (work unit A.4); absent on Profiles produced before this field existed.
+     */
+    verdict_distribution?: VerdictDistribution;
 }
 export interface BrainPage {
     title: string;
