@@ -147,4 +147,23 @@ export interface CalibratedAdviseInput {
 export interface CalibratedAdviseOutput {
     advice: AdviceResult;
 }
+/**
+ * A thread of thought an author opened in an essay — a question raised, an
+ * idea floated, a promise to explore — and never returned to.
+ */
+export interface AbandonedThread {
+    thread_title: string;
+    source_essay: string;
+    source_date: string;
+    /** A verbatim quote of the opened thread, at most 300 characters. */
+    original_quote: string;
+    why_unfinished: string;
+}
+export interface FindAbandonedThreadsInput {
+    takes: Take[];
+}
+export interface FindAbandonedThreadsOutput {
+    /** The most demo-worthy abandoned threads — at most 3. */
+    threads: AbandonedThread[];
+}
 //# sourceMappingURL=contracts.d.ts.map
