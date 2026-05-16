@@ -109,7 +109,14 @@ export interface ResolveOutcomesInput {
     take: Take;
 }
 export interface ResolveOutcomesOutput {
-    outcome: Outcome;
+    /**
+     * The curated outcome for this take, or `null` when no curated outcome
+     * exists in data/outcomes.json for it. `null` is NOT the same as the
+     * `unresolvable` verdict: `unresolvable` is a graded result (the take was
+     * curated but could not be settled), whereas `null` means the take was
+     * never curated at all.
+     */
+    outcome: Outcome | null;
 }
 export interface HindsightProfileInput {
     resolved_takes: Take[];
