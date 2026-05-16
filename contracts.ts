@@ -29,7 +29,21 @@ export interface Outcome {
 }
 
 export interface Take {
+  /**
+   * Display identifier of the form `[title-slug]-claim-[claim_index]`
+   * (e.g. `cities-and-ambition-claim-1`), where `title-slug` is the slugified
+   * essay frontmatter title. Human-facing / external reference only — NOT a
+   * reliable join key, because the `-claim-N` index depends on extraction
+   * order. To match curated outcomes, join on `essay_slug` instead.
+   */
   id: string;
+  /**
+   * Corpus filename stem (e.g. `cities` from `cities.md`). The join key for
+   * matching curated outcomes: `take.essay_slug === outcome.essay_slug`.
+   */
+  essay_slug: string;
+  /** 1-indexed position of this take within its essay, in document order. */
+  claim_index: number;
   source_page: string;
   claim_text: string;
   claim_date: string;
