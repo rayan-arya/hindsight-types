@@ -1,0 +1,36 @@
+{
+  "name": "@hindsight/types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript contracts for the Hindsight GBrain skills and GStack Browser extension.",
+  "type": "module",
+  "main": "./dist/contracts.js",
+  "types": "./dist/contracts.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/contracts.d.ts",
+      "default": "./dist/contracts.js"
+    }
+  },
+  "files": [
+    "dist",
+    "contracts.ts",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "qa": "npm run typecheck"
+  },
+  "keywords": [
+    "hindsight",
+    "gbrain",
+    "gstack",
+    "types"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
