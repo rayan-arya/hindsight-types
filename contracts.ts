@@ -141,8 +141,6 @@ export interface HindsightProfileOutput {
 export interface CalibratedAdviseInput {
   question: string;
   profile: Profile;
-  brain_pages: BrainPage[];
-  fresh_signal: FreshSignalItem[];
   force_pattern?: string;
 }
 
